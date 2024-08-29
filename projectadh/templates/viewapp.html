@@ -1,0 +1,34 @@
+<html>
+    <head></head>
+    <body>
+        {% include 'menubar.html'%}
+        <form method="post" action="{% url 'search' %}">
+            {% csrf_token %}
+            <br><input type="text" name="searchbox" maxlength=30>
+            <button type="submit">Search</button>
+        </form>
+        <table cellpadding="20px">
+        <tr>
+            <th>Name</th>
+            <th>Application Type</th>
+            <th>Application no.</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr>
+        {% for i in frm %}
+        <tr>
+            <td>{{i.Name}}</td>
+            <td>{{i.Application_type}}</td>
+            <td>{{i.Application_no}}</td>
+            <td>{{i.Username}}</td>
+            <td>{{i.Password}}</td>
+            <td>{{i.Application_status}}</td>
+            <td>{{i.Date}}</td>                
+        </tr>      
+        {%endfor%}
+        </table>   
+        <br><center>{{msg}}</center> 
+    </body>
+</html>

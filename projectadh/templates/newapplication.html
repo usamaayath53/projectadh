@@ -1,0 +1,10 @@
+<html>
+    {%include 'menubar.html'%}
+    <body>
+    <form method="POST">
+    {% csrf_token %}
+    {{frm.as_p}}
+    <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -16,15 +16,15 @@ class newApplication(models.Model):
         ('etapp','Etapp'),
         ('landtax','Landtax')
     )
-    Application_type=models.CharField(max_length=10 choices=appoptions)
-
-    Username=models.CharField(max_length=30)
-    Password=models.CharField(max_length=30)
-    
+    Application_type=models.CharField(max_length=20, choices=appoptions)
+    Application_no=models.CharField(max_length=20)
     statusoptions=(
         ('approved','Approved'),
         ('pending','Pending'),
         ('rejected','Rejected')
     )
-    Status=models.CharField(max_length=10 choices=statusoptions)
+    Application_status=models.CharField(max_length=10, choices=statusoptions)
     
+    Username=models.CharField(max_length=30)
+    Password=models.CharField(max_length=30)
+    Date=models.DateField()
