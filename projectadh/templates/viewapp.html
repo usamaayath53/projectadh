@@ -2,7 +2,7 @@
     <head></head>
     <body>
         {% include 'menubar.html'%}
-        <form method="post" action="{% url 'search' %}">
+        <form method="post" action="{% url 'editsearch' %}">
             {% csrf_token %}
             <br><input type="text" name="searchbox" maxlength=30>
             <button type="submit">Search</button>

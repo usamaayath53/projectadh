@@ -14,7 +14,8 @@ class newApplication(models.Model):
         ('non-creamy','Non creamy'),
         ('possession','Possession'),
         ('etapp','Etapp'),
-        ('landtax','Landtax')
+        ('landtax','Landtax'),
+        ('irctc','IRCTC')
     )
     Application_type=models.CharField(max_length=20, choices=appoptions)
     Application_no=models.CharField(max_length=20)

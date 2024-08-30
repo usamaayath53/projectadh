@@ -12,6 +12,9 @@ urlpatterns = [
         path('editview/search/',views.editview,name="editview"),
         path('editview/',views.editview,name="editview"),
         path('editapp/<pk>',views.editapp,name='editapp'),
-        path('search/editapp/<pk>',views.editapp, name="searchedit"),
+        path('view/search/',views.editsearch,name="editsearch"),
+        path('links/',views.quicklinks,name="quicklinks"),
+        path('logout/',views.userlogout,name='logout')
+        # path('search/editapp/<pk>',views.editapp, name="searchedit"),
         
     ]

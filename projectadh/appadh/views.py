@@ -21,11 +21,16 @@ def userlogin(request):
         print(user)
         if user:
             login(request,user)
-            return redirect(userdashboard)
+            return redirect('userdashboard')
         else:
             msg="Invalid credentials"
             print("abc")
     return render(request,'login.html',{'msg':msg})
+
+@login_required
+def userlogout(request):
+    logout(request)
+    return redirect('login')
         
 @login_required
 def userdashboard(request):
@@ -52,6 +57,29 @@ def viewapplication(request):
 
 @login_required
 def search(request):
+    msg=None
+    num=None
+    # data=None
+    if request.POST:
+        name=request.POST['searchbox'].strip()
+        data_exists=newApplication.objects.filter(Name=name).exists()
+        # print(data_exists)
+        if data_exists:
+            data=newApplication.objects.filter(Name=name)
+            num=len(data)
+            msg= f"{num} results found"
+        else:
+            data=newApplication.objects.none()
+            msg="No details found"
+    print(data)
+    return render(request,'editview.html',{'frm':data, 'msg':msg})
+
+@login_required
+def quicklinks(request):
+    return render(request,'links.html')
+
+@login_required
+def editsearch(request):
     msg=None
     num=None
     # data=None
