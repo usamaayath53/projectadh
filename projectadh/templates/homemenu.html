@@ -1,0 +1,44 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            body {
+                font-family: ui-rounded;
+                margin: 0;
+                position: relative;
+                overflow: hidden;
+                background-image: url({% static 'images/newlogin.jpg' %});
+                background-size: cover;
+                background-position: center;
+                height: 100vh;
+            }
+
+            .navbar {
+                width: 100%;
+                background-color: white;
+                padding: 10px 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+            }
+
+            .logo img {
+                height: 100px; /* Adjust the height to make the logo smaller */
+                width: auto; /* Keeps the logo's aspect ratio */
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/logo.jpeg' %}" alt="Logo">
+            </div>
+        </div>
+    </body>
+</html>

@@ -21,10 +21,10 @@ def userlogin(request):
         print(user)
         if user:
             login(request,user)
-            return redirect('userdashboard')
+            return render(request,'userdashboard.html')
         else:
             msg="Invalid credentials"
-            print("abc")
+    
     return render(request,'login.html',{'msg':msg})
 
 @login_required
@@ -40,15 +40,19 @@ def userdashboard(request):
 @login_required
 def newapplication(request):
     frm=newappForm()
+    msg=None
     if request.POST:
         frm=newappForm(request.POST)
         if frm.is_valid:
             frm.save()
-            return redirect(newapplication)
+            msg="New Application added"
+            frm=newappForm()
+            return render(request,'newapplication.html',{'frm':frm,'msg':msg})
         else:
             frm=newappForm()
+            msg="Something went wrong"
         # print(frm)
-    return render(request,'newapplication.html',{'frm':frm})
+    return render(request,'newapplication.html',{'frm':frm,'msg':msg})
 
 @login_required
 def viewapplication(request):
@@ -113,7 +117,7 @@ def editapp(request,pk):
             frm.save()
             frm=newApplication.objects.all()
             msg="Changes updated Successfully"
-            return render(request,'viewapp.html',{'frm':frm,'msg':msg})
+            return render(request,'editview.html',{'frm':frm,'msg':msg})
     return render(request,'newapplication.html',{'frm':frm})
 
 

@@ -22,7 +22,8 @@ class newApplication(models.Model):
     statusoptions=(
         ('approved','Approved'),
         ('pending','Pending'),
-        ('rejected','Rejected')
+        ('rejected','Rejected'),
+        ('none','None')
     )
     Application_status=models.CharField(max_length=10, choices=statusoptions)
     

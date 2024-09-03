@@ -1,9 +1,80 @@
-<html>
-    <h2>Login</h2>
-    <form method="post">
-    {% csrf_token %}
-    Email : <input type="text" name="username" required="required"><br><br>
-    Password : <input type="password" name="password" required="required"><br><br>
-    <button type="submit">Submit</button>
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: beige;
+            font-family: ui-rounded;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .login-container h2 {
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-align: center;
+            color: #343a40;
+        }
+        .login-container .form-control {
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        .login-container .btn {
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .login-container .btn:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #dc3545; /* Color for error messages */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+        {% if msg %}
+        <div class="message">{{ msg }}</div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

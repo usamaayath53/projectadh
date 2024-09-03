@@ -1,34 +1,121 @@
-<html>
-    <head></head>
-    <body>
-        {% include 'menubar.html'%}
-        <form method="post" action="{% url 'editsearch' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Applications</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: beige;
+            font-family: ui-rounded;
+            margin: 0;
+        }
+        .form-container {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+        }
+        .search-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .search-form input[type="text"] {
+            flex: 1;
+            margin-right: 10px;
+            max-width: 300px;
+        }
+        .search-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .search-form button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    {% include 'menubar.html' %}
+    <div class="container form-container">
+        <h2>Application Details</h2>
+        <form method="post" action="{% url 'editsearch' %}" class="search-form">
             {% csrf_token %}
-            <br><input type="text" name="searchbox" maxlength=30>
-            <button type="submit">Search</button>
+            <input type="text" name="searchbox" maxlength="30" class="form-control" placeholder="Search by Name...">
+            <button type="submit" class="btn">Search</button>
         </form>
-        <table cellpadding="20px">
-        <tr>
-            <th>Name</th>
-            <th>Application Type</th>
-            <th>Application no.</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Status</th>
-            <th>Date</th>
-        </tr>
-        {% for i in frm %}
-        <tr>
-            <td>{{i.Name}}</td>
-            <td>{{i.Application_type}}</td>
-            <td>{{i.Application_no}}</td>
-            <td>{{i.Username}}</td>
-            <td>{{i.Password}}</td>
-            <td>{{i.Application_status}}</td>
-            <td>{{i.Date}}</td>                
-        </tr>      
-        {%endfor%}
-        </table>   
-        <br><center>{{msg}}</center> 
-    </body>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Application Type</th>
+                    <th>Application No.</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in frm %}
+                <tr>
+                    <td>{{ i.Name }}</td>
+                    <td>{{ i.Application_type }}</td>
+                    <td>{{ i.Application_no }}</td>
+                    <td>{{ i.Username }}</td>
+                    <td>{{ i.Password }}</td>
+                    <td>{{ i.Application_status }}</td>
+                    <td>{{ i.Date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="message">{{ msg }}</div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

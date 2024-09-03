@@ -1,67 +1,120 @@
-<html>
-    <head></head>
-    <body>
-        {% include 'menubar.html'%}
-        <table cellpadding=10px>
-            <tr>
-                <th>Site Name</th>
-                <th>Link</th>
-            </tr>
-            <tr>
-                <td>Etapp</td>
-                <td><a href="https://etapp.kwa.kerala.gov.in/">Click here</a></td>
-            </tr>
-            <tr>
-                <td>Edistrict</td>
-                <td><a href="https://edistrict.kerala.gov.in/">Click here</a></td>
-            </tr>
-            <tr>
-                <td>Electricity bill</td>
-                <td><a href="https://wss.kseb.in/selfservices/quickpay">Click here</a></td>
-            </tr>
-            <tr>
-                <td>Electricity bill</td>
-                <td><a href="https://wss.kseb.in/selfservices/quickpay">Click here</a></td>
-            </tr>
-            <tr>
-                <td>PSC</td>
-                <td><a href="https://thulasi.psc.kerala.gov.in/thulasi/">Click here</a></td>
-            </tr>
-            <tr>
-                <td>KSRTC Booking</td>
-                <td><a href="https://www.keralartc.com/">Click here</a></td>
-            </tr>
-
-            <tr>
-                <td>IRCTC Train ticket</td>
-                <td><a href="https://www.irctc.co.in/nget/train-search">Click here</a></td>
-            </tr>
-            <tr>
-                <td>PNR Status Check</td>
-                <td><a href="https://www.indianrail.gov.in/enquiry/PNR/PnrEnquiry.html?locale=en">Click here</a></td>
-            </tr>
-
-            <tr>
-                <td>Landtax</td>
-                <td><a href="https://revenue.kerala.gov.in/">Click here</a></td>
-            </tr>
-            <tr>
-                <td>Propertytax</td>
-                <td><a href="https://tax.lsgkerala.gov.in/epayment/">Click here</a></td>
-            </tr>
-            <tr>
-                <td>Propertytax</td>
-                <td><a href="https://tax.lsgkerala.gov.in/epayment/">Click here</a></td>
-            </tr>
-            <tr>
-                <td>Birth certificate</td>
-                <td><a href="https://ksmart.lsgkerala.gov.in/ui/cr/public/quick-certificate-birth">Click here</a></td>
-            </tr>
-            <tr>
-                <td>Death certificate</td>
-                <td><a href="https://ksmart.lsgkerala.gov.in/ui/cr/public/quick-certificate-death">Click here</a></td>
-            </tr>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important Links</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: beige;
+            font-family: ui-rounded;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        td a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        td a:hover {
+            text-decoration: underline;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'menubar.html' %}
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Site Name</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Etapp</td>
+                    <td><a href="https://etapp.kwa.kerala.gov.in/">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>Edistrict</td>
+                    <td><a href="https://edistrict.kerala.gov.in/">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>Electricity bill</td>
+                    <td><a href="https://wss.kseb.in/selfservices/quickpay">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>PSC</td>
+                    <td><a href="https://thulasi.psc.kerala.gov.in/thulasi/">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>KSRTC Booking</td>
+                    <td><a href="https://www.keralartc.com/">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>IRCTC Train ticket</td>
+                    <td><a href="https://www.irctc.co.in/nget/train-search">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>PNR Status Check</td>
+                    <td><a href="https://www.indianrail.gov.in/enquiry/PNR/PnrEnquiry.html?locale=en">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>Landtax</td>
+                    <td><a href="https://revenue.kerala.gov.in/">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>Propertytax</td>
+                    <td><a href="https://tax.lsgkerala.gov.in/epayment/">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>Birth certificate</td>
+                    <td><a href="https://ksmart.lsgkerala.gov.in/ui/cr/public/quick-certificate-birth">Click here</a></td>
+                </tr>
+                <tr>
+                    <td>Death certificate</td>
+                    <td><a href="https://ksmart.lsgkerala.gov.in/ui/cr/public/quick-certificate-death">Click here</a></td>
+                </tr>
+            </tbody>
         </table>
-    </body>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

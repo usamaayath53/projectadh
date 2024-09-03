@@ -1,6 +1,45 @@
+{% load static %}
 <html>
-    <head></head>
-    <body>
-        <a href="{% url 'userdashboard'%}">Home</a>
-    </body>
+
+<head>
+    <style>
+        .nav {
+            width: 100%; /* Make sure the nav spans the full width */
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+        }
+
+        .nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav ul li {
+            margin-top: 13px;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .logo {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:100%">
+        <nav class="nav">
+            <img src="{% static 'images/logo.jpeg' %}" class="logo" alt="Logo">
+            <ul>
+                <li><a href="{% url 'userdashboard' %}">Home</a></li>
+                <li><a href="{% url 'logout' %}" class="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+
 </html>
